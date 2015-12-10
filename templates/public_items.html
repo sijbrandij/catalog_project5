@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+  <h1>Items in {{ category.name }}</h1>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li><strong>{{message}}</strong></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  {% for item in items %}
+    <p>
+      {{ item.name }}
+      <br />
+      {{ item.description }}
+      <br />
+      {% if item.picture %}
+        <img src='{{item.picture}}'>
+        <br />
+      {% endif %}
+
+    </p>
+  {% endfor %}
+{% endblock %}

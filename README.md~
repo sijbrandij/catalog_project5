@@ -1,0 +1,4 @@
+Public ip address: 52.27.4.77
+
+To log in to the VM: ssh -i ~/.ssh/udacity_key.rsa root@52.27.4.77
+To see the webpage: visit 52.27.4.77:80 in your browser

@@ -1,0 +1,6 @@
+ItemCatalogApp
+Flask == 0.10.1
+SQLAlchemy == 0.8.4
+httplib2 == 0.9.1
+dicttoxml == 1.6.6
+flask-seasurf

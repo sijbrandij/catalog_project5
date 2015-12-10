@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+  <h1>Edit item</h1>
+  <form action="{{url_for('editItem', category_id = category_id, item_id = item.id)}}" method="post">
+    <p>Name:</p>
+    <input type='text' size='30' name='name' value='{{item.name}}'>
+
+    <p>Description:</p>
+    <input type='text' size='30' name='description' value='{{item.description}}'>
+
+    <p>Picture:</p>
+    <input type='text' size='30' name='picture' value='{{item.picture}}'>
+
+    {% if item.picture %}
+      <p>
+        Current picture:
+        <br />
+        <img src='{{item.picture}}'>
+      </p>
+    {% endif %}
+
+    <p>
+      <input type='submit' value='Update'>
+      <a href="{{url_for('items', category_id = category_id)}}">Cancel</a>
+    </p>
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">
+  </form>
+{% endblock %}
