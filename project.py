@@ -1,8 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect, flash, jsonify
+from flask.ext.sqlalchemy import SQLAlchemy
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Category, Item, User
+from database_setup import Category, Item, User
 
 from flask import session as login_session
 from flask.ext.seasurf import SeaSurf
@@ -14,16 +13,14 @@ import httplib2, json, requests, dicttoxml
 from flask import make_response
 from functools import wraps
 
+# Database setup
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://catalog:catalog@localhost/catalog'
+db = SQLAlchemy(app)
+
 csrf = SeaSurf(app)
 
 CLIENT_ID = json.loads(open('google_client_secrets.json', 'r').read())['web']['client_id']
-
-engine = create_engine('sqlite:///catalogwithusers.db')
-Base.metadata.bind = engine
-
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
 
 # Authentication
 
