@@ -1,7 +1,47 @@
-Public ip address: 52.27.4.77
+# Setup
 
-To log in to the VM: ssh -i ~/.ssh/udacity_key.rsa root@52.27.4.77
-To see the webpage: visit 52.27.4.77:80 in your browser
+## Basic configuration
+
+### Launch VM with Udacity account
+Public IP: 52.27.4.77
+Login to VM: ssh -i ~/.ssh/udacity_key.rsa root@52.27.4.77
+
+### Create user named grader and give sudo rights
+```
+adduser grader
+```
+To give the user sudo rights, add a file called 'grader' to /etc/sudoers.d (Files are picked up by /etc/sudoers file). Contents of the file:
+```
+grader ALL=(ALL) NOPASSWD:ALL
+```
+
+### Update all currently installed packages
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+### Configure local timezone to UTC
+```
+sudo dpkg-reconfigure tzdata
+```
+Scroll down to 'etc' and select 'UTC' in second list.
+Source: http://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt
+
+## Secure your server
+
+### Change SSH port from 22 to 2200
+### Confire UFW to only allow incoming connections for SSH (2200), HTTP (80) and NTP (123)
+
+## Install application
+
+### Install and configure Apache to serve a Python mod_wsgi application
+### Install and configure PostgreSQL
+#### Do not allow remote connections
+#### Create a new user named 'catalog' with limited permissions
+### Install git, clone and setup your Catalog app project to be served .git directory should not be visible to the browser
+### Configure third party authentication
+
 
 # Item catalog app
 

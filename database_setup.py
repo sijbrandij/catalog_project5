@@ -57,6 +57,6 @@ class Item(Base):
             'picture': self.picture,
         }
 
-engine = create_engine('sqlite:///catalogwithusers.db')
+engine = create_engine('postgresql:///catalog.db')
 
 Base.metadata.create_all(engine)
