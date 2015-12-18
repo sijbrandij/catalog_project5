@@ -3,8 +3,8 @@
 ## Basic configuration
 
 ### Launch VM with Udacity account
-Public IP: 52.27.4.77
-Login to VM: ssh -i ~/.ssh/udacity_key.rsa root@52.27.4.77
+Public IP: ```52.27.4.77```
+Login to VM: ```ssh -i ~/.ssh/udacity_key.rsa root@52.27.4.77```
 
 ### Create user named grader and give sudo rights
 ```
