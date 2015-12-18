@@ -32,15 +32,50 @@ Source: http://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc
 ## Secure your server
 
 ### Change SSH port from 22 to 2200
+Edit ```/etc/ssh/sshd_config```:
+```
+# What ports, IPs and protocols we listen for
+Port 22
+```
+Change port number to 2200 (assignment) and restart server
+```
+sudo service ssh restart
+```
+
+Source: https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
+
+
 ### Confire UFW to only allow incoming connections for SSH (2200), HTTP (80) and NTP (123)
+```
+sudo ufw default deny outgoing
+sudo ufw default deny incoming
+sudo ufw allow http
+sudo ufw allow ntp
+sudo ufw allow 2200
+sudo ufw enable
+```
 
 ## Install application
 
 ### Install and configure Apache to serve a Python mod_wsgi application
 ### Install and configure PostgreSQL
+```
+sudo apt-get install postgresql postgresql-contrib
+```
+
 #### Do not allow remote connections
+PostgreSQL does not allow remote connections by default (source https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+
 #### Create a new user named 'catalog' with limited permissions
+```createuser --interactive```
+answer 'no' to all of the questions
+
 ### Install git, clone and setup your Catalog app project to be served .git directory should not be visible to the browser
+```
+sudo apt-get install git
+git clone https://github.com/sijbrandij/catalog_project5.git
+```
+
 ### Configure third party authentication
 
 
