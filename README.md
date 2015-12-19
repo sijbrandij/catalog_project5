@@ -5,7 +5,7 @@
 ### Launch VM with Udacity account
 Public IP: ```52.27.4.77```
 
-Login to VM: ```ssh -i ~/.ssh/udacity_key.rsa root@52.27.4.77```
+Login to VM: ```ssh grader@52.27.4.77 -p 2200 -i ~/.ssh/grader```
 
 ### Create user named grader and give sudo rights
 ```
@@ -48,7 +48,6 @@ Source: https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
 ### Confire UFW to only allow incoming connections for SSH (2200), HTTP (80) and NTP (123)
 ```
 sudo ufw default deny outgoing
-sudo ufw default deny incoming
 sudo ufw allow http
 sudo ufw allow ntp
 sudo ufw allow 2200
