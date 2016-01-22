@@ -20,7 +20,7 @@ db = SQLAlchemy(app)
 
 csrf = SeaSurf(app)
 
-CLIENT_ID = json.loads(open('google_client_secrets.json', 'r').read())['web']['client_id']
+CLIENT_ID = json.loads(open('/var/www/catalog/catalog/google_client_secrets.json', 'r').read())['web']['client_id']
 
 # Authentication
 
@@ -46,7 +46,7 @@ def gconnect():
 
     try:
         # Upgrade the authorization code into a credentials object
-        oauth_flow = flow_from_clientsecrets('google_client_secrets.json', scope='')
+        oauth_flow = flow_from_clientsecrets('/var/www/catalog/catalog/google_client_secrets.json', scope='')
         oauth_flow.redirect_uri = 'postmessage'
         credentials = oauth_flow.step2_exchange(code)
     except FlowExchangeError:
