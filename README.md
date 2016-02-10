@@ -6,6 +6,9 @@
 Public IP: ```52.27.4.77```
 
 Login to VM: ```ssh grader@52.27.4.77 -p 2200 -i ~/.ssh/grader```
+The ssh key for user grader was created with the password 'grader'
+It may also be necessary to change permissions on the ssh key file:
+```chmod 600 ~/path/to/keyfile```
 
 ### Create user named grader and give sudo rights
 ```
@@ -68,6 +71,7 @@ PostgreSQL does not allow remote connections by default (source https://www.digi
 #### Create a new user named 'catalog' with limited permissions
 ```createuser --interactive```
 answer 'no' to all of the questions
+password of catalog user is 'catalog'
 
 ### Install git, clone and setup your Catalog app project to be served .git directory should not be visible to the browser
 ```
@@ -92,7 +96,7 @@ dicttoxml == 1.6.6
 ## Set Up Environment & Installation
 - setup the environment: ```pip install -r requirements.txt```
 - setup the database: ```python database_setup.py```
-- start the server: ```python project.py```
+- start the server: ```python __init__.py```
 - visit http://localhost:3000 to see the project running
 
 ## Usage
