@@ -50,7 +50,8 @@ Source: https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
 
 ### Confire UFW to only allow incoming connections for SSH (2200), HTTP (80) and NTP (123)
 ```
-sudo ufw default deny outgoing
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 sudo ufw allow http
 sudo ufw allow ntp
 sudo ufw allow 2200
@@ -80,8 +81,9 @@ git clone https://github.com/sijbrandij/catalog_project5.git
 ```
 
 ### Configure third party authentication
+Create a Google client ID and secret, and added the public URL of the application to the authorized redirect URL and javascript URLs. Downloaded the credentials as a JSON file and renamed it to google_client_secrets. Update ```login.html``` to use the correct public URL.
 
-
+Below is the README as it was created for project 3
 # Item catalog app
 
 ## Introduction
