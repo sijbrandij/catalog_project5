@@ -3,7 +3,7 @@
 ## Basic configuration
 
 ### Launch VM with Udacity account
-Public IP: ```52.27.4.77```
+Public IP: ```http://ec2-52-27-4-77.us-west-2.compute.amazonaws.com/```
 
 Login to VM: ```ssh grader@52.27.4.77 -p 2200 -i ~/.ssh/grader```
 The ssh key for user grader was created with the password 'grader'
